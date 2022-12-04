@@ -11,7 +11,7 @@
 <form method="post" action="nextpage" enctype="application/x-www-form-urlencoded">
     <div style="margin: 40px" class="row py-5">
         <div class="col-lg-12 mx-auto">
-            <h1 class="display-4">Home - WallPaper - Page <%= title %></h1>
+            <h1 style="color: #00B7FF;text-align: center; font-family: 'Agency FB'" class="display-4">Home - WallPaper - Page <%= title %></h1>
             <input name="title" type="hidden" value=<%= title %>>
             <input name="a" type="hidden" value=<%= a %>>
             <input name="b" type="hidden" value=<%= b %>>
@@ -25,7 +25,7 @@
 
                 <% for (let i = a; i < b; i++) { %>
                     <% var itemname = "item" + i %>
-                    <div id="<%= itemname %>" class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div id="<%= itemname %>"class="col-xl-3 col-lg-4 col-md-6 mb-4 border border-5">
                         <div class="bg-white rounded shadow-sm"><img
                                     src="<%= list[i].linkAnhGoc %>" alt=""
                                     class="img-fluid card-img-top"/>
@@ -46,7 +46,7 @@
                 <% } else { %>
                     <div class="py-5 text-right">
                         <button id="btn" type="submit"
-                                class="btn btn-dark px-5 py-3 text-uppercase">Next page
+                                class="btn btn-outline-danger">Next page
                         </button>
                     </div>
                 <% } %>
