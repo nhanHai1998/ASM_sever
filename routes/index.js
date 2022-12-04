@@ -191,6 +191,26 @@ router.post('/nextpage', function (req, res, next) {
     })
 });
 
+router.post('/backpage', function (req, res, next) {
+    var title = parseFloat(req.body.title)
+    var a = parseFloat(req.body.a)
+    var b = parseFloat(req.body.b)
+    const hinhnen = mongoose.model('wallpapers', wallpaper);
+    hinhnen.find({}).then(data => {
+        if (a > 0) {
+            if (a - 20 < 0) {
+                res.render('index', {list: data, a: 0, b: a+20, title: title + 1})
+            } else {
+                res.render('index', {list: data, a: a -20, b:a, title: title - 1})
+            }
+        } else {
+            console.log("vào đây" + 3)
+            res.render('index', {list: data, a: a, b: b, title: title})
+        }
+
+    })
+});
+
 router.get('/sendreq', function (req, res, next) {
     console.log("đang lấy data")
     const hinhnen = mongoose.model('wallpapers', wallpaper);
